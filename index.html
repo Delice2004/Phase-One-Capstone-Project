@@ -289,3 +289,81 @@
   </div>
 
 </footer>
+
+
+<script type="module">
+
+  import {
+    addFavorite,
+    removeFavorite,
+    isFavorite
+  } from './js/favorites.js';
+
+  import {
+    fetchBooks,
+    searchBooks
+  } from './js/fetchBooks.js';
+
+  let currentBooks = [];
+
+  const grid = document.getElementById('booksGrid');
+  const stateBox = document.getElementById('stateBox');
+  const resultCount = document.getElementById('resultCount');
+
+  // MOBILE MENU
+  window.toggleMenu = function () {
+    document.getElementById('mobileMenu').classList.toggle('hidden');
+  };
+
+  // TOAST
+  function showToast(message) {
+
+    const toast = document.getElementById('toast');
+
+    toast.textContent = message;
+
+    toast.classList.remove('translate-y-24', 'opacity-0');
+
+    setTimeout(() => {
+      toast.classList.add('translate-y-24', 'opacity-0');
+    }, 2500);
+  }
+
+  // LOADING
+  function showLoading() {
+
+    grid.innerHTML = '';
+
+    for (let i = 0; i < 8; i++) {
+
+      grid.innerHTML += `
+        <div class="bg-white rounded-[28px] overflow-hidden border border-border">
+
+          <div class="aspect-[2/3] bg-slate-200 animate-pulse"></div>
+
+          <div class="p-5 space-y-4">
+
+            <div class="h-5 bg-slate-200 rounded animate-pulse"></div>
+
+            <div class="h-4 w-2/3 bg-slate-200 rounded animate-pulse"></div>
+
+          </div>
+
+        </div>
+      `;
+    }
+  }
+
+  // EMPTY
+  function showEmpty(message) {
+
+    stateBox.classList.remove('hidden');
+
+    stateBox.innerHTML = `
+      <div class="text-7xl mb-6">📚</div>
+
+      <h3 class="text-4xl font-bold mb-4">
+        ${message}
+      </h3>
+    `;
+  }

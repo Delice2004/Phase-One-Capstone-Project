@@ -293,16 +293,17 @@
 
 <script type="module">
 
-  import {
-    addFavorite,
-    removeFavorite,
-    isFavorite
-  } from './js/favorites.js';
+import {
+  addFavorite,
+  removeFavorite,
+  isFavorite
+} from '../lab3/favorites.js';
 
-  import {
-    fetchBooks,
-    searchBooks
-  } from './js/fetchBooks.js';
+import {
+  fetchBooks,
+  searchBooks,
+  getCoverUrl
+} from '../lab3/fetchbooks.js';
 
   let currentBooks = [];
 
@@ -452,7 +453,7 @@
     } else {
 
       addFavorite(book);
-      showToast('Book saved ♥');
+      showToast('Book saved ');
     }
 
     renderBooks(currentBooks);

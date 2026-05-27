@@ -283,7 +283,7 @@
     </div>
 
     <div class="text-sm text-slate-500">
-      © 2025
+      © 2026
     </div>
 
   </div>
@@ -293,16 +293,17 @@
 
 <script type="module">
 
-  import {
-    addFavorite,
-    removeFavorite,
-    isFavorite
-  } from './js/favorites.js';
+import {
+  addFavorite,
+  removeFavorite,
+  isFavorite
+} from '../lab3/favorites.js';
 
-  import {
-    fetchBooks,
-    searchBooks
-  } from './js/fetchBooks.js';
+import {
+  fetchBooks,
+  searchBooks,
+  getCoverUrl
+} from '../lab3/fetchbooks.js';
 
   let currentBooks = [];
 
